@@ -1,0 +1,26 @@
+﻿@model  IEnumerable<Login_2.Models.SignUpModel>
+@{
+}
+
+<a class="btn btn-outline-primary" asp-action="Create" asp-controller="SignUp">Create</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Mobile</td>
+                    <td>@user.Email</td>
+                    <td>@user.Location</td>
+                    <td><a class="btn-outline-secondary" asp-action="Edit"asp-controller="SignUp"asp-route-id="@user.Id">Edit</a> <a class="btn-outline-danger" asp-action="Delete"asp-controller="SignUp"asp-route-id="@user.Id">Delete</a></td>
+                </tr>
+            }
+</table>
